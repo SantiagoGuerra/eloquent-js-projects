@@ -1,0 +1,23 @@
+{
+  "name": "eloquent-js-projects",
+  "version": "1.0.0",
+  "description": "Developing projects related with the book \"Eloquent JavaScript By M. Haverbeke\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SantiagoGuerra/eloquent-js-projects.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SantiagoGuerra/eloquent-js-projects/issues"
+  },
+  "homepage": "https://github.com/SantiagoGuerra/eloquent-js-projects#readme",
+  "devDependencies": {
+    "eslint": "^7.0.0"
+  }
+}
