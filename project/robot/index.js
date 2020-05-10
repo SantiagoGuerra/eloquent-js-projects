@@ -1,4 +1,4 @@
-export const roads = [
+const roads = [
   "Alice's House->Bob's House", "Alice's House->Cabin",
   "Alice's House->Post Office", "Bob's House->Town Hall",
   "Daria's House->Ernie's House", "Daria's House->Town Hall",
@@ -8,7 +8,7 @@ export const roads = [
   'Marketplace->Town Hall', 'Shop->Town Hall',
 ];
 
-export const arrayToGraph = array => {
+const arrayToGraph = array => {
   const graph = {};
   const insertEdge = (from, to) => {
     if (graph[from] === null || graph[from] === undefined) {
@@ -28,3 +28,28 @@ export const arrayToGraph = array => {
 
   return graph;
 };
+
+const roadGraph = arrayToGraph(roads);
+
+class VillageState {
+  constructor(place, parcels) {
+    this.place = place;
+    this.parcels = parcels;
+  }
+
+  move(destination) {
+    if (!roadGraph[this.place].includes(destination)) {
+      return this;
+    }
+    const parcels = this.parcels.map(p => {
+      if (p.place !== this.place) return p;
+      return { place: destination, address: p.address };
+    }).filter(p => p.place !== p.address);
+    return new VillageState(destination, parcels);
+  }
+}
+
+const first = new VillageState(
+  'Post Office',
+  [{ place: 'Post Office', address: "Alice's House" }],
+);
